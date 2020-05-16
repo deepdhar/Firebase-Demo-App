@@ -14,6 +14,8 @@ dependencies:
   font_awesome_flutter: ^8.2.0
 
   cupertino_icons: ^0.1.3
+  firebase_auth: ^0.16.0
+  google_sign_in: ^4.4.6
 
 dev_dependencies:
   flutter_test:
@@ -23,11 +25,18 @@ dev_dependencies:
 flutter:
 
   uses-material-design: true
+  assets:
+    - images/
 
   fonts:
   - family: Rubik
     fonts:
       - asset: fonts/Rubik-Regular.ttf
+
   - family: Source Sans Pro
     fonts:
-      - asset: fonts/SourceSansPro-Regular.ttf
+      - asset: fonts/SourceSansPro-SemiBold.ttf
+
+  - family: Basic
+    fonts:
+      - asset: fonts/Basic-Regular.ttf
