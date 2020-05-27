@@ -1,9 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'secondary_mainscreen.dart';
+import 'test.dart';
 
 GoogleSignIn _googleSignIn = GoogleSignIn(scopes: ['profile', 'email']);
 
@@ -29,8 +28,8 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(child: Text('Nutrifrnd')),
-        backgroundColor: Colors.green[400],
+        title: Center(child: Text('nutrifrnd')),
+        backgroundColor: Colors.tealAccent[700],
       ),
       body: SafeArea(child: _buildBody()),
     );
@@ -46,8 +45,9 @@ class _MainScreenState extends State<MainScreen> {
         children: <Widget>[
           SizedBox(height: 50.0),
           CircleAvatar(
-            backgroundImage: AssetImage('images/icon.jpg'),
-            radius: 60.0,
+            backgroundColor: Colors.white30,
+            backgroundImage: AssetImage('images/edited.png'),
+            radius: 65.0,
           ),
           SizedBox(height: 20.0),
           Row(
@@ -56,16 +56,16 @@ class _MainScreenState extends State<MainScreen> {
               Text(
                 "Welcome to",
                 style: TextStyle(
-                  fontFamily: 'Rubik',
-                  fontSize: 20.0,
+                  fontFamily: 'Philosopher',
+                  fontSize: 22.0,
                 ),
               ),
               Text(
-                " Nutrifrnd",
+                " nutrifrnd",
                 style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontStyle: FontStyle.italic,
-                  fontSize: 20.0,
+                  fontFamily: 'Philosopher',
+                  color: Colors.teal[600],
+                  fontSize: 22.0,
                 ),
               ),
             ],
@@ -80,18 +80,15 @@ class _MainScreenState extends State<MainScreen> {
                 color: Colors.red[600],
                 margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 15.0),
                 child: ListTile(
-                  leading: Padding(
-                    padding: const EdgeInsets.fromLTRB(10.0, 0.0, 0.0, 0.0),
-                    child: Icon(
-                      FontAwesomeIcons.google,
-                    ),
+                  leading: Icon(
+                    FontAwesomeIcons.google,
                   ),
                   title: Padding(
-                    padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 0.0),
+                    padding: const EdgeInsets.all(8.0),
                     child: Text(
                       'Sign-In with Google',
                       style: TextStyle(
-                        fontSize: 20.0,
+                        fontSize: 18.0,
                         fontFamily: 'SourceSansPro',
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
@@ -112,34 +109,43 @@ class _MainScreenState extends State<MainScreen> {
       mainAxisSize: MainAxisSize.max,
       children: <Widget>[
         Container(
-          color: Colors.black38,
-          margin: EdgeInsets.only(top: 0.0),
-          child: ListTile(
-            leading: GoogleUserCircleAvatar(
-              identity: _currentUser,
-            ),
-            title: Text(
-              'Hello, ',
-              style: TextStyle(
-                fontSize: 16.0,
-                fontWeight: FontWeight.bold,
+          color: Colors.grey[900],
+          child: Column(
+            children: <Widget>[
+              ListTile(
+                leading: GoogleUserCircleAvatar(
+                  identity: _currentUser,
+                ),
+                title: Text(
+                  'Hello, ',
+                  style: TextStyle(
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+                subtitle: Text(
+                  _currentUser.displayName ?? '',
+                  style: TextStyle(
+                      fontFamily: 'OleoScript',
+                      fontSize: 17.0,
+                      color: Colors.grey),
+                ),
               ),
-            ),
-            subtitle: Text(
-              _currentUser.displayName ?? '',
-              style: TextStyle(
-                fontSize: 17.0,
-                fontStyle: FontStyle.italic,
+              Padding(
+                padding: const EdgeInsets.only(right: 10.0, bottom: 10.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: <Widget>[
+                    RaisedButton(
+                      color: Colors.teal[400],
+                      onPressed: _handleSignOut,
+                      child: Text('SIGN OUT'),
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ),
-        ),
-        SizedBox(height: 10.0),
-        Container(
-          child: RaisedButton(
-            color: Colors.green[500],
-            onPressed: _handleSignOut,
-            child: Text('SIGN OUT'),
+            ],
           ),
         ), //SignOut Button
         SizedBox(height: 80.0),
@@ -148,7 +154,7 @@ class _MainScreenState extends State<MainScreen> {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => SecondaryScreen()),
+                MaterialPageRoute(builder: (context) => TestPage()),
               );
             },
             child: Card(
@@ -157,7 +163,7 @@ class _MainScreenState extends State<MainScreen> {
               child: ListTile(
                 title: Center(
                   child: Text(
-                    'Explore the App',
+                    'Take a Test',
                     style: TextStyle(
                       color: Colors.white,
                       fontFamily: 'Basic',
