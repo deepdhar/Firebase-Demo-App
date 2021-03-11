@@ -1,4 +1,4 @@
-package com.example.android.firebasedemo;
+package com.example.android.firebasepractice;
 
 import org.junit.Test;
 

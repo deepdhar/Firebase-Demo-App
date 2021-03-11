@@ -7,18 +7,22 @@
     tools:context=".StartActivity">
 
     <Button
-        android:id="@+id/register_button"
+        android:id="@+id/register_button_start"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Register"
-        android:layout_marginTop="200dp"/>
+        android:layout_marginTop="200dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:text="REGISTER"/>
 
     <Button
-        android:id="@+id/login_button"
-        android:layout_below="@id/register_button"
+        android:id="@+id/login_button_start"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Login"
-        android:layout_marginTop="40dp"/>
+        android:layout_below="@id/register_button_start"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:text="LOGIN"/>
 
 </RelativeLayout>

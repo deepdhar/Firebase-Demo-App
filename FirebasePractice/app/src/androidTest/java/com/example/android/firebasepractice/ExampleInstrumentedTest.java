@@ -1,4 +1,4 @@
-package com.example.android.firebasedemo;
+package com.example.android.firebasepractice;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.example.android.firebasedemo", appContext.getPackageName());
+        assertEquals("com.example.android.firebasepractice", appContext.getPackageName());
     }
 }
